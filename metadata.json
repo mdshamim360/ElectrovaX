@@ -1,0 +1,10 @@
+{
+  "name": "DarazLite Marketplace",
+  "description": "Full-stack eCommerce marketplace web application with catalog filters, real-time tracking, administrative portal, and SSLCommerz transaction sandboxing.",
+  "requestFramePermissions": [
+    "notifications"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

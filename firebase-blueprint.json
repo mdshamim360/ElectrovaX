@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "eCommerce marketplace product info.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "image": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "stock": { "type": "integer" },
+        "featured": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "price", "image", "description", "category", "stock"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "User orders containing checkout items and payment status.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "customerAddress": { "type": "string" },
+        "items": { "type": "array" },
+        "totalAmount": { "type": "number" },
+        "paymentStatus": { "type": "string", "enum": ["pending", "success", "failed"] },
+        "orderStatus": { "type": "string", "enum": ["pending", "shipped", "delivered"] },
+        "paymentSessionId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "customerName", "customerEmail", "customerPhone", "customerAddress", "items", "totalAmount", "paymentStatus", "orderStatus"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile database.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "isAdmin": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "name", "isAdmin"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "eCommerce products grid and stock."
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Marketplace transaction orders."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Registered user profile information."
+    }
+  }
+}
